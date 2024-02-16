@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    hostname: db
+    ports:
+      - "8451:5432"
+    environment:
+      POSTGRES_DB: "mydb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  app:
+    build:
+      dockerfile: ./Dockerfile
+    hostname: app
+    restart: always
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 9229:9229
+      - 4451:3000
+
+volumes:
+  db:
+    driver: local

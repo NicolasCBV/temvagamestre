@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Jest Tests",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["--runInBand", "./src/domain/mappers/account.spec.ts"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "disableOptimisticBPs": true,
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "runtimeArgs": ["--inspect-brk"]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Jest Tests E2E",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": [
+        "-c", "jest-integration-config.ts", 
+        "--runInBand", "./src/presentation/controllers/account/add-account.test.ts"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "disableOptimisticBPs": true,
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "runtimeArgs": ["--inspect-brk"]
+    },
+    {
+      "type": "pwa-node",
+      "request": "attach",
+      "name": "Attach to server",
+      "mode": "remote",
+      "port": 9229,
+      "address": "localhost",
+      "remoteRoot": "/home/node/app/",
+      "localRoot": "${workspaceFolder}",
+      "outDir": ["${workspaceFolder}/dist"],
+      "cwd": "${workspaceFolder}",
+      "restart": true,
+      "sourceMaps": true,
+      "trace": true
+    }
+  ]
+}

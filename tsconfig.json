@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "incremental": false,
+
+    "resolveJsonModule": true,
+
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+
+    "noImplicitAny": true,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@domain/*": ["./src/domain/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@presentation/*": ["./src/presentation/*"],
+      "@infra/*": ["./src/infra/*"],
+      "@usecases/*": ["./src/usecases/*"],
+      "@tests/*": ["./tests/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}
