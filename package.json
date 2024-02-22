@@ -9,7 +9,7 @@
     "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
+    "start:debug": "nest start --debug 0.0.0.0:9229 --watch",
     "start:prod": "node dist/main",
     "test:unit": "dotenv -e .env.test -- jest -c jest-unit-config.ts",
     "test:integration": "dotenv -e .env -- jest -c jest-integration-config.ts",
